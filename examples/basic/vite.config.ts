@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
-import vitePluginOxc from '../../dist/index.js'
+import vitePluginOxc from 'vite-plugin-oxc'
+import inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   plugins: [
@@ -7,7 +8,7 @@ export default defineConfig({
       // Transform TypeScript and JSX
       transform: {
         jsx: {
-          runtime: 'automatic', // Use React 17+ automatic JSX runtime
+          runtime: 'classic', // Use React 17+ automatic JSX runtime
         },
       },
       resolve: false,
@@ -16,6 +17,7 @@ export default defineConfig({
       // Enable source maps
       sourcemap: true,
     }),
+    inspect()
   ],
   build: {
     target: 'es2020',
