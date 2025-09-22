@@ -39,7 +39,7 @@ export function createFilter(
 function normalizePatterns(patterns?: FilterPattern): (string | RegExp)[] {
   if (!patterns) return []
   if (Array.isArray(patterns)) return patterns.filter(Boolean) as (string | RegExp)[]
-  return [patterns]
+  return [patterns as string | RegExp]
 }
 
 function testPattern(pattern: string | RegExp, id: string): boolean {
