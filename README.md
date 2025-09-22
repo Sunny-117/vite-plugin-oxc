@@ -20,6 +20,11 @@ pnpm add -D vite-plugin-oxc
 yarn add -D vite-plugin-oxc
 ```
 
+### Requirements
+
+- **Node.js**: 20.19+ or 22.12+
+- **Vite**: 4.0+ (supports Vite 4, 5, 6, and 7)
+
 ## Usage
 
 ### Basic Setup
@@ -144,40 +149,47 @@ Enable source map generation.
 
 ## Examples
 
-### React with TypeScript
+Check out the [examples](./examples/) directory for complete working examples:
+
+- **[Simple TypeScript](./examples/simple/)** - Basic TypeScript transformation
+- **[React + TypeScript](./examples/basic/)** - React application with JSX transformation
+
+### Quick Start Examples
+
+#### React with TypeScript
 
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
-import oxc from 'vite-plugin-oxc'
+import vitePluginOxc from 'vite-plugin-oxc'
 
 export default defineConfig({
   plugins: [
-    oxc({
+    vitePluginOxc({
       transform: {
         jsx: {
           runtime: 'automatic',
-        },
-        typescript: {
-          declaration: false,
         },
       },
       minify: true,
     }),
   ],
+  build: {
+    minify: false, // Let oxc handle minification
+  },
 })
 ```
 
-### Custom JSX (Preact)
+#### Custom JSX (Preact)
 
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
-import oxc from 'vite-plugin-oxc'
+import vitePluginOxc from 'vite-plugin-oxc'
 
 export default defineConfig({
   plugins: [
-    oxc({
+    vitePluginOxc({
       transform: {
         jsx: {
           runtime: 'classic',
@@ -190,16 +202,16 @@ export default defineConfig({
 })
 ```
 
-### Production Optimization
+#### Production Optimization
 
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
-import oxc from 'vite-plugin-oxc'
+import vitePluginOxc from 'vite-plugin-oxc'
 
 export default defineConfig({
   plugins: [
-    oxc({
+    vitePluginOxc({
       transform: {
         target: 'es2020',
       },
@@ -217,6 +229,28 @@ export default defineConfig({
     minify: false, // Let oxc handle minification
   },
 })
+```
+
+### Running Examples
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd vite-plugin-oxc
+
+# Build the plugin
+npm install
+npm run build
+
+# Run simple TypeScript example
+cd examples/simple
+npm install
+npm run dev
+
+# Run React example
+cd ../basic
+npm install
+npm run dev
 ```
 
 ## Performance

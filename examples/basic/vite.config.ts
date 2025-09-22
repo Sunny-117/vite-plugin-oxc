@@ -1,18 +1,16 @@
 import { defineConfig } from 'vite'
-import oxc from 'vite-plugin-oxc'
+import vitePluginOxc from '../../dist/index.js'
 
 export default defineConfig({
   plugins: [
-    oxc({
+    vitePluginOxc({
       // Transform TypeScript and JSX
       transform: {
         jsx: {
           runtime: 'automatic', // Use React 17+ automatic JSX runtime
         },
-        typescript: {
-          declaration: false,
-        },
       },
+      resolve: false,
       // Enable minification in production
       minify: true,
       // Enable source maps
