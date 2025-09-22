@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-oxc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Oxc integration for Vite",
   "type": "module",
   "keywords": [

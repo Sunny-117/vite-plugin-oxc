@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.0.2
+
+
+### 🚀 Enhancements
+
+- Vite oxc plugin ([79cedf0](https://github.com/Sunny-117/vite-plugin-oxc/commit/79cedf0))
+- Playground ([f5a2a77](https://github.com/Sunny-117/vite-plugin-oxc/commit/f5a2a77))
+
+### 🩹 Fixes
+
+- Types ([226b981](https://github.com/Sunny-117/vite-plugin-oxc/commit/226b981))
+- Scripts ([29bb5cd](https://github.com/Sunny-117/vite-plugin-oxc/commit/29bb5cd))
+
+### 🏡 Chore
+
+- Release ([56fae19](https://github.com/Sunny-117/vite-plugin-oxc/commit/56fae19))
+- Add changelogen ([bd7ba41](https://github.com/Sunny-117/vite-plugin-oxc/commit/bd7ba41))
+
+### ❤️ Contributors
+
+- Sunny-117 <zhiqiangfu6@gmail.com>
+
 ## [0.1.1] - 2025-01-22
 
 ### Changed
