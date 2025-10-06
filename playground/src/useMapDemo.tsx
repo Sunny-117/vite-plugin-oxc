@@ -1,5 +1,5 @@
 import React from "react";
-import { useMap } from "@sunnyhooks/shooks";
+import { useMap } from "use-react-core";
 
 export default () => {
   const [map, { set, setAll, remove, reset, get }] = useMap([

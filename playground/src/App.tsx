@@ -3,6 +3,7 @@ import UseMemoDemo from "./useMapDemo";
 export default function App() {
   return (
     <div>
+      App
       <UseMemoDemo />
     </div>
   );

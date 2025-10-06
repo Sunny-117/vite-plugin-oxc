@@ -1,14 +1,39 @@
 {
-  "name": "@sunnyhooks",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "cd packages && cd hooks && npm run dev"
+  "name": "use-react-core",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "A TypeScript project",
+  "author": "Sunny-117",
+  "license": "MIT",
+  "homepage": "https://github.com/Sunny-117/use-react-core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunny-117/use-react-core.git"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "bugs": "https://github.com/Sunny-117/use-react-core/issues",
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "robuild",
+    "dev": "robuild --watch",
+    "prepublishOnly": "npm run build",
+    "commit": "git-cz"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "git-cz": "^4.9.0",
+    "robuild": "^0.0.10",
+    "typescript": "^5.5.4"
+  }
 }
