@@ -6,18 +6,6 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-A TypeScript project
-
-> **Note**:
-> Replace `use-react-core`, `A TypeScript project` and `Sunny-117` globally to use this template.
-
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/Sunny-117/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/Sunny-117/static/sponsors.svg'/>
-  </a>
-</p>
 
 ## License
 
