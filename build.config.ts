@@ -5,6 +5,7 @@ export default defineConfig({
     {
       input: 'src/index',
       type: 'bundle',
+      noExternal: ['@huse/request']
     }
   ],
 })
