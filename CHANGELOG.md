@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v1.0.1
+
+[compare changes](https://github.com/Sunny-117/use-react-core/compare/v0.0.3...v1.0.1)
+
 ## v0.0.3
 
 [compare changes](https://github.com/Sunny-117/use-react-core/compare/v0.0.1...v0.0.3)
