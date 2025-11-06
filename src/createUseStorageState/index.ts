@@ -1,2 +1,2 @@
-const createUseStorageState = () => { }
+function createUseStorageState() { }
 export default createUseStorageState
