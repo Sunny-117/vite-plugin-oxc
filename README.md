@@ -1,5 +1,7 @@
 # vite-plugin-oxc
 
+[!IMPORTANT] This package is deprecated. Please use @vitejs/plugin-react instead, which automatically enables Oxc-based Fast Refresh transform on rolldown-vite.
+
 🚀 **Blazing Fast** Oxc integration for Vite - Transform, resolve, and minify your code with the power of Rust.
 
 ## Features
