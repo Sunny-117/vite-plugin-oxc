@@ -1,0 +1,63 @@
+{
+  "name": "vite-plugin-oxc",
+  "version": "0.0.2",
+  "description": "Oxc integration for Vite",
+  "type": "module",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "oxc",
+    "transform",
+    "typescript",
+    "jsx",
+    "minify"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test:dev": "vitest",
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "prepublishOnly": "npm run build",
+    "release": "npm test && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "dependencies": {
+    "oxc-minify": ">=0.89.0",
+    "oxc-resolver": "^11.8.0",
+    "oxc-transform": ">=0.89.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "changelogen": "^0.6.2",
+    "eslint": "^9.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^7.1.6",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
