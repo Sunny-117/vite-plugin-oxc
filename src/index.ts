@@ -1,15 +1,11 @@
 import path from 'node:path'
 import process from 'node:process'
+import remapping, { type EncodedSourceMap } from '@ampproject/remapping'
 import { ResolverFactory } from 'oxc-resolver'
 import { transformSync as oxcTransform } from 'oxc-transform'
 import type { Plugin } from 'vite'
 import type { VitePluginOxcOptions } from './types'
 import { createFilter, guessSourceType, getModuleFormat, resolveOptions } from './utils'
-
-interface RenderedChunk {
-  fileName: string
-  [key: string]: any
-}
 
 /**
  * Vite plugin for Oxc integration
@@ -122,22 +118,54 @@ export default function vitePluginOxc(rawOptions: VitePluginOxcOptions = {}): Pl
       }
     },
 
-    async renderChunk(code, chunk: RenderedChunk) {
-      if (options.minify === false) return null
+    async generateBundle(_outputOptions, bundle) {
+      if (options.minify === false) return
 
-      try {
-        const { minifySync } = await import('oxc-minify')
-        const result = minifySync(chunk.fileName, code, {
-          ...(options.minify === true ? {} : options.minify),
-          sourcemap: options.sourcemap,
-        })
+      const { minifySync } = await import('oxc-minify')
 
-        return {
-          code: result.code,
-          map: result.map,
+      for (const fileName of Object.keys(bundle)) {
+        const chunk = bundle[fileName]
+        if (chunk.type !== 'chunk') continue
+
+        try {
+          const result = minifySync(fileName, chunk.code, {
+            ...(options.minify === true ? {} : options.minify),
+            sourcemap: options.sourcemap,
+          })
+          chunk.code = result.code
+          if (result.map && chunk.map) {
+            const minifyMap: EncodedSourceMap = {
+              version: 3,
+              file: result.map.file,
+              sources: result.map.sources,
+              sourcesContent: result.map.sourcesContent,
+              names: result.map.names,
+              mappings: result.map.mappings,
+            }
+            const chunkMap: EncodedSourceMap = {
+              version: 3,
+              file: chunk.map.file,
+              sources: chunk.map.sources,
+              sourcesContent: chunk.map.sourcesContent,
+              names: chunk.map.names,
+              mappings: chunk.map.mappings,
+            }
+            const merged = remapping([minifyMap, chunkMap], () => null)
+            chunk.map = {
+              file: merged.file ?? '',
+              mappings: merged.mappings as string,
+              names: merged.names,
+              sources: merged.sources as string[],
+              sourcesContent: merged.sourcesContent as string[],
+              version: merged.version,
+              toUrl() {
+                return `data:application/json;charset=utf-8;base64,${Buffer.from(JSON.stringify(this)).toString('base64')}`
+              },
+            }
+          }
+        } catch (error) {
+          this.error(`Failed to minify ${fileName}: ${error}`)
         }
-      } catch (error) {
-        this.error(`Failed to minify ${chunk.fileName}: ${error}`)
       }
     },
   }
