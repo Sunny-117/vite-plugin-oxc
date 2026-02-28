@@ -5,6 +5,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.0.4
+
+[compare changes](https://github.com/Sunny-117/vite-plugin-oxc/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Unit test ([4651204](https://github.com/Sunny-117/vite-plugin-oxc/commit/4651204))
+- Support a table row visibility monitoring feature ([ccddaf5](https://github.com/Sunny-117/vite-plugin-oxc/commit/ccddaf5))
+- Implement oxc-minify in generateBundle hook with sourcemap merging ([ce60c72](https://github.com/Sunny-117/vite-plugin-oxc/commit/ce60c72))
+- Add React Fast Refresh HMR support ([01883b7](https://github.com/Sunny-117/vite-plugin-oxc/commit/01883b7))
+- Use oxc for JSX/TSX transformation instead of esbuild ([58be935](https://github.com/Sunny-117/vite-plugin-oxc/commit/58be935))
+
+### 🩹 Fixes
+
+- Adapt to oxc async API changes for playground build ([75c9c46](https://github.com/Sunny-117/vite-plugin-oxc/commit/75c9c46))
+- Update tests for enforce:'pre' default and fix override logic ([f660144](https://github.com/Sunny-117/vite-plugin-oxc/commit/f660144))
+
+### 📖 Documentation
+
+- ✏️ package.json ([7428f7f](https://github.com/Sunny-117/vite-plugin-oxc/commit/7428f7f))
+
+### 🏡 Chore
+
+- **release:** V1.0.1 ([41d156f](https://github.com/Sunny-117/vite-plugin-oxc/commit/41d156f))
+- 🤖 lock update ([3759f6a](https://github.com/Sunny-117/vite-plugin-oxc/commit/3759f6a))
+- 🤖 bundle @huse/request ([78c0366](https://github.com/Sunny-117/vite-plugin-oxc/commit/78c0366))
+- Deprecated ([6b681cc](https://github.com/Sunny-117/vite-plugin-oxc/commit/6b681cc))
+- Add playground ([ed770b4](https://github.com/Sunny-117/vite-plugin-oxc/commit/ed770b4))
+- Claude config ([55b857e](https://github.com/Sunny-117/vite-plugin-oxc/commit/55b857e))
+- **release:** V0.0.3 ([e17dec7](https://github.com/Sunny-117/vite-plugin-oxc/commit/e17dec7))
+- Switch from tsup to robuild for building ([b544f2c](https://github.com/Sunny-117/vite-plugin-oxc/commit/b544f2c))
+- Update configs and add react-refresh dependency ([9db8726](https://github.com/Sunny-117/vite-plugin-oxc/commit/9db8726))
+
+### ❤️ Contributors
+
+- Sunny-117 <zhiqiangfu6@gmail.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/Sunny-117/vite-plugin-oxc/compare/v0.0.3...v0.0.3)
