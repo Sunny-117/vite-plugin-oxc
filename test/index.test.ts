@@ -1,14 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import vitePluginOxc from '../src/index'
+import { transformSync } from 'oxc-transform'
 
-// Mock oxc modules
+// Mock oxc-transform
 vi.mock('oxc-transform', () => ({
-  transformSync: vi.fn((_id, code, _options) => ({
+  transformSync: vi.fn((_id: string, code: string, _options?: unknown) => ({
     code: `// Transformed: ${code}`,
     map: null,
-    errors: [],
+    errors: [] as Array<{ message: string }>,
   })),
 }))
+
+// Get mocked transformSync for test manipulation
+const transformSyncMock = vi.mocked(transformSync)
 
 // Mock ResolverFactory as a class
 vi.mock('oxc-resolver', () => ({
