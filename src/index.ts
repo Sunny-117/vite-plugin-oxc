@@ -1,7 +1,7 @@
 import path from 'node:path'
 import process from 'node:process'
 import { ResolverFactory } from 'oxc-resolver'
-import { transform as oxcTransform } from 'oxc-transform'
+import { transformSync as oxcTransform } from 'oxc-transform'
 import type { Plugin } from 'vite'
 import type { VitePluginOxcOptions } from './types'
 import { createFilter, guessSourceType, getModuleFormat, resolveOptions } from './utils'
@@ -126,8 +126,8 @@ export default function vitePluginOxc(rawOptions: VitePluginOxcOptions = {}): Pl
       if (options.minify === false) return null
 
       try {
-        const { minify } = await import('oxc-minify')
-        const result = minify(chunk.fileName, code, {
+        const { minifySync } = await import('oxc-minify')
+        const result = minifySync(chunk.fileName, code, {
           ...(options.minify === true ? {} : options.minify),
           sourcemap: options.sourcemap,
         })
