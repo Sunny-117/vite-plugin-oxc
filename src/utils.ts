@@ -106,5 +106,6 @@ export function resolveOptions(
     resolveNodeModules: options.resolveNodeModules || false,
     minify: options.minify !== false ? (options.minify || false) : false,
     sourcemap: options.sourcemap ?? isDev,
+    reactRefresh: options.reactRefresh ?? true,
   }
 }

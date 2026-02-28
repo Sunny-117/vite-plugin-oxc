@@ -44,7 +44,8 @@
     "@ampproject/remapping": "^2.3.0",
     "oxc-minify": "^0.115.0",
     "oxc-resolver": "^11.19.1",
-    "oxc-transform": "^0.115.0"
+    "oxc-transform": "^0.115.0",
+    "react-refresh": "^0.18.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.2",
