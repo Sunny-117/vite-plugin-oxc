@@ -123,6 +123,25 @@ window.$RefreshSig$ = () => (type) => type;
 
   const plugin: Plugin = {
     name: 'vite-plugin-oxc',
+    enforce: 'pre',
+
+    config(_userConfig, { command }) {
+      const isDev = command === 'serve'
+      // Disable esbuild's JSX/TSX transformation so oxc can handle it
+      return {
+        esbuild: {
+          // Preserve JSX so that oxc transform can handle it
+          include: /\.ts$/,
+          exclude: /\.[jt]sx$/,
+        },
+        optimizeDeps: {
+          esbuildOptions: {
+            // Also for optimizeDeps pre-bundling
+            jsx: 'automatic',
+          },
+        },
+      }
+    },
 
     configResolved(config) {
       isDev = config.command === 'serve'
@@ -329,9 +348,9 @@ function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransf
     },
   }
 
-  // Set enforce after plugin creation to avoid TypeScript issues
-  if (rawOptions.enforce) {
-    plugin.enforce = rawOptions.enforce
+  // Override enforce if user specified it
+  if (rawOptions.enforce !== undefined) {
+    plugin.enforce = rawOptions.enforce || undefined
   }
 
   return plugin
