@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(cd /Users/olive/Desktop/code/Sunny-117/vite-plugin-oxc/playground && rm -rf dist && pnpm build 2>&1)",
+      "Bash(ls:*)",
+      "Bash(git reset:*)",
+      "Bash(git add:*)"
     ]
   }
 }
