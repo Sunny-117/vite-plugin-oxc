@@ -59,6 +59,7 @@ describe('vite-plugin-oxc', () => {
   it('should create plugin with default options', () => {
     const plugin = vitePluginOxc()
     expect(plugin.name).toBe('vite-plugin-oxc')
+    expect(plugin.enforce).toBe('pre')
     expect(typeof plugin.transform).toBe('function')
   })
 
@@ -75,12 +76,15 @@ describe('vite-plugin-oxc', () => {
     })
 
     expect(plugin.name).toBe('vite-plugin-oxc')
-    expect(plugin.enforce).toBeUndefined()
+    expect(plugin.enforce).toBe('pre')
   })
 
-  it('should set enforce option correctly', () => {
-    const plugin = vitePluginOxc({ enforce: 'pre' })
-    expect(plugin.enforce).toBe('pre')
+  it('should allow overriding enforce option', () => {
+    const pluginPost = vitePluginOxc({ enforce: 'post' })
+    expect(pluginPost.enforce).toBe('post')
+
+    const pluginNone = vitePluginOxc({ enforce: undefined })
+    expect(pluginNone.enforce).toBeUndefined()
   })
 
   it('should handle transform disabled', () => {

@@ -348,9 +348,9 @@ function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransf
     },
   }
 
-  // Override enforce if user specified it
-  if (rawOptions.enforce !== undefined) {
-    plugin.enforce = rawOptions.enforce || undefined
+  // Override enforce if user explicitly specified it (including setting to undefined)
+  if ('enforce' in rawOptions) {
+    plugin.enforce = rawOptions.enforce
   }
 
   return plugin
